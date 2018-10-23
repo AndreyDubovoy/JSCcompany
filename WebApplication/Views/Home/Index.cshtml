@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "User Entry";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@Html.Partial("~/Views/Shared/Menu.cshtml")
+<div id="main">
+    <fieldset>
+        <legend>Enter login and password</legend>
+        <form name="entry" method="get" action="/Home/UserEntry/login">
+            <p> Enter login </p>
+            <input id="holder-login" 
+                   autofocus
+                   type="number" 
+                   name="login"
+                   min="1"
+                   value=@ViewBag.CurrentLogin /> <br />
+            <p> Enter password </p>
+            <input id="password" 
+                   type="password" 
+                   name="password" 
+                   value="xxxxxxxxxxx"
+                   readonly/> <br />
+            <input type="submit" 
+                   value="Enter" /> <br />
+        </form>
+        <p class="message">@ViewBag.Message</p>
+    </fieldset>
+</div>
+<script>
+    function displayPassword(e) {
+        var passwordInput = document.getElementById("password");
+        passwordInput.value = "xxxxxxx";
+    }
+    var holderLogin = document.getElementById("holder-login");
+    holderLogin.addEventListener("change", displayPassword);
+</script>

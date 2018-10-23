@@ -1,0 +1,8 @@
+﻿@model WebHolder.Models.RevenueBox
+@{
+    ViewBag.Title = "Revenue";
+}
+@Html.Partial("~/Views/Shared/Menu.cshtml")
+<div id="main">
+    @Html.Partial("MainRevenue", Model)
+</div>

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Business.ShareTrade>
+<fieldset>
+    <legend>My last trade operation</legend>
+    <table class="table">
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Trade type
+            </th>
+            <th>
+                Name trader
+            </th>
+            <th>
+                Share type
+            </th>
+            <th>
+                Share Qty
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.DateTrade.ToShortDateString()
+                </td>
+
+                @if (item.IdPurchaser == ViewBag.Holder.Id)
+                {
+                    <td>
+                        Buy
+                    </td>
+                    <td>
+                        @item.NameSeller
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Sale
+                    </td>
+                    <td>
+                        @item.NamePurchaser
+                    </td>
+                }
+                <td>
+                    @item.ShareType
+                </td>
+                <td align="right">
+                    @item.ShareQty
+                </td>
+                <td align="right">
+                    @item.Price
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    @if (ViewBag.NextPortion)
+    {
+        @Ajax.ActionLink("Next Portion","NextPortion", new AjaxOptions
+        {
+            HttpMethod = "post",
+            UpdateTargetId = "mybids"
+        })
+
+    }
+</fieldset>

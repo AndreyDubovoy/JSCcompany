@@ -1,0 +1,26 @@
+﻿<fieldset>
+    <legend> Personal data </legend>
+    <h3 id="current-name">@(ViewBag.Holder.FirstName + " " + ViewBag.Holder.SecondName)</h3>
+    <p>
+        <em>Common shares: @ViewBag.Holder.CommonShare</em> <br />
+        <em> Preference shares: @ViewBag.Holder.PreferShare</em>
+    </p>
+    <p> <em>Phone: @ViewBag.Holder.Phone</em></p>
+    <p> <em>Email: @ViewBag.Holder.Email</em></p>
+    <p class="message" style="">@ViewBag.Message </p>
+
+    @using (Ajax.BeginForm("EditHolder", new AjaxOptions
+    {
+        HttpMethod = "get",
+        UpdateTargetId = "holder"
+    }))
+    {
+        <input name="Edit" type="submit" value="Edit" />
+    }
+</fieldset>
+<script>
+    var holderName = document.getElementById("holder-name");
+    var currentName = document.getElementById("current-name");
+    holderName.innerText = currentName.innerText;
+</script>
+

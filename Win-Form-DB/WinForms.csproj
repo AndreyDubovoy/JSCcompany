@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8A36C817-9866-49D9-A0D6-D8DBE98937EF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Win_Form_DB</RootNamespace>
+    <AssemblyName>WinForms</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Framework.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Binaries\Framework.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Framework.Db, Version=1.0.6868.23431, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Binaries\Framework.Db.dll</HintPath>
+    </Reference>
+    <Reference Include="Framework.Utils, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Binaries\Framework.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SqlClient.4.5.1\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\Base.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base.Designer.cs">
+      <DependentUpon>Base.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataView\HolderMenu.cs" />
+    <Compile Include="DataView\CabinetFilterOrder.cs" />
+    <Compile Include="DataView\QueueTrade.cs" />
+    <Compile Include="DataView\TradeFiltrOrder.cs" />
+    <Compile Include="Forms\FormPrimary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormPrimary.Designer.cs">
+      <DependentUpon>FormPrimary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormBalanceMovement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormBalanceMovement.Designer.cs">
+      <DependentUpon>FormBalanceMovement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormCabinet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCabinet.Designer.cs">
+      <DependentUpon>FormCabinet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormCabinetFiltrOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCabinetFiltrOrder.Designer.cs">
+      <DependentUpon>FormCabinetFiltrOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormCloseBid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCloseBid.Designer.cs">
+      <DependentUpon>FormCloseBid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDeleteBid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDeleteBid.Designer.cs">
+      <DependentUpon>FormDeleteBid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDistribDiv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDistribDiv.Designer.cs">
+      <DependentUpon>FormDistribDiv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDividend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDividend.Designer.cs">
+      <DependentUpon>FormDividend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormHolders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormHolders.Designer.cs">
+      <DependentUpon>FormHolders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormNewBid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormNewBid.Designer.cs">
+      <DependentUpon>FormNewBid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormNewList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormNewList.Designer.cs">
+      <DependentUpon>FormNewList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormRevenue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRevenue.Designer.cs">
+      <DependentUpon>FormRevenue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSettings.Designer.cs">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormShowLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormShowLog.Designer.cs">
+      <DependentUpon>FormShowLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormTrade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormTrade.Designer.cs">
+      <DependentUpon>FormTrade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormTradeFiltrOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormTradeFiltrOrder.Designer.cs">
+      <DependentUpon>FormTradeFiltrOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormUserEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormUserEntry.Designer.cs">
+      <DependentUpon>FormUserEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HoldrerOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HoldrerOrder.Designer.cs">
+      <DependentUpon>HoldrerOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewHolder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewHolder.Designer.cs">
+      <DependentUpon>NewHolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Forms\SeachHolder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SeachHolder.Designer.cs">
+      <DependentUpon>SeachHolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SelectHolder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectHolder.Designer.cs">
+      <DependentUpon>SelectHolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service\FormConfig.cs" />
+    <Compile Include="Service\ConfigSettings.cs" />
+    <Compile Include="Service\MessageList.cs" />
+    <Compile Include="Service\MyMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Service\MyMessageBox.Designer.cs">
+      <DependentUpon>MyMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service\XmlSerializableDictionary.cs" />
+    <EmbeddedResource Include="Forms\Base.resx">
+      <DependentUpon>Base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormPrimary.resx">
+      <DependentUpon>FormPrimary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormBalanceMovement.resx">
+      <DependentUpon>FormBalanceMovement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormCabinet.resx">
+      <DependentUpon>FormCabinet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormCabinetFiltrOrder.resx">
+      <DependentUpon>FormCabinetFiltrOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormCloseBid.resx">
+      <DependentUpon>FormCloseBid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDeleteBid.resx">
+      <DependentUpon>FormDeleteBid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDistribDiv.resx">
+      <DependentUpon>FormDistribDiv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDividend.resx">
+      <DependentUpon>FormDividend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormHolders.resx">
+      <DependentUpon>FormHolders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormNewBid.resx">
+      <DependentUpon>FormNewBid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormNewList.resx">
+      <DependentUpon>FormNewList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRevenue.resx">
+      <DependentUpon>FormRevenue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSettings.resx">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormShowLog.resx">
+      <DependentUpon>FormShowLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormTrade.resx">
+      <DependentUpon>FormTrade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormTradeFiltrOrder.resx">
+      <DependentUpon>FormTradeFiltrOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormUserEntry.resx">
+      <DependentUpon>FormUserEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HoldrerOrder.resx">
+      <DependentUpon>HoldrerOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewHolder.resx">
+      <DependentUpon>NewHolder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Forms\SeachHolder.resx">
+      <DependentUpon>SeachHolder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectHolder.resx">
+      <DependentUpon>SelectHolder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Service\MyMessageBox.resx">
+      <DependentUpon>MyMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business\Business\Business.csproj">
+      <Project>{c27dbd22-c136-4604-861c-581b19eced0c}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

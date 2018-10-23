@@ -1,0 +1,46 @@
+﻿@model WebHolder.Models.TradeBox
+<fieldset>
+    <legend>Last price quotes</legend>
+    <div id="detail">
+        <div id="quotetable">
+            <table class="table">
+                <tr>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Common Price
+                    </th>
+                    <th>
+                        Prefer Price
+                    </th>
+                </tr>
+                @foreach (var item in Model.Quote)
+                {
+                    <tr>
+                        <td>
+                            @item.Date.ToShortDateString()
+                        </td>
+                        <td align="right">
+                            @item.CommonPrice
+                        </td>
+                        <td align="right">
+                            @item.PreferPrice
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            @if (ViewBag.Refresh)
+            {
+                using (Ajax.BeginForm("QuoteRefresh", new AjaxOptions
+                {
+                    UpdateTargetId = "quote"
+                }))
+                {
+                    <input name="Refresh" type="submit" value="Refresh" />
+                }
+            }
+        </div>
+    </div>
+</fieldset>

@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("~/Views/Shared/Menu.cshtml")
+<div id="main">
+    <div id="settings" class="settings">
+        @using (Ajax.BeginForm("EditSettings", new AjaxOptions
+        {
+            UpdateTargetId = "main"
+        }))
+        {
+            <div class="field">
+                <h3>Home Form</h3>
+            </div>
+            <div class="field">
+                <label for="TradePortion">Last trade portion: </label>
+                <input type="number"
+                       autofocus
+                       class="shortnumber"
+                       id="TradePortion"
+                       name="TradePortion"
+                       value="@ViewBag.Settings.TradePortion"
+                       max=10
+                       min=3 />
+            </div>
+            <div class="field">
+                <h3>Balance Form</h3>
+            </div>
+            <div class="field">
+                <label for="BalancePortion">Balance portion: </label>
+                <input type="number"
+                       class="shortnumber"
+                       id="BalancePortion"
+                       name="BalancePortion"
+                       value="@ViewBag.Settings.BalancePortion"
+                       max=10
+                       min=3 />
+            </div>
+            <h3>Trade Form</h3>
+            <div class="field">
+                <label for="BidsPortion">Bids portion: </label>
+                <input type="number"
+                       class="shortnumber"
+                       id="BidsPortion"
+                       name="BidsPortion"
+                       value="@ViewBag.Settings.BidsPortion"
+                       max=10
+                       min=3
+                       width="3" />
+            </div>
+            <div class="field">
+                <label for="QuoteQty">Last price quote quantity:  </label>
+                <input type="number"
+                       class="shortnumber"
+                       id="QuoteQty"
+                       name="QuoteQty"
+                       value="@ViewBag.Settings.QuoteQty"
+                       max=10
+                       min=5 />
+            </div>
+            <div class="field">
+                <label for="ShowDayComplete">Show completed bids (days): </label>
+                <input type="number"
+                       class="shortnumber"
+                       id="ShowDayComplete"
+                       name="ShowDayComplete"
+                       value="@ViewBag.Settings.ShowDayComplete"
+                       max=100
+                       min=1 />
+            </div>
+            <h3>Revenue Form</h3>
+            <div class="field">
+                <label for="RevenueDays">Count revenue for last days: </label>
+                <input type="number"
+                       class="shortnumber"
+                       id="RevenueDays"
+                       name="RevenueDays"
+                       value="@ViewBag.Settings.RevenueDays"
+                       max=100
+                       min=10 />
+            </div>
+            <input name="Save" type="submit" value="Save" />
+            <input name="Cancel" type="submit" value="Cancel" formnovalidate />
+
+        }
+    </div>
+</div>

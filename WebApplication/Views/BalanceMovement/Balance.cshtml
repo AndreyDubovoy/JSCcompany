@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Balance";
+}
+@Html.Partial("~/Views/Shared/Menu.cshtml")
+<div id="main">
+    <div id="balance">
+        @Html.Partial("BalanceContent")
+    </div>
+    <div id="results">
+        @using (Ajax.BeginForm("Balance", new AjaxOptions
+        {
+            UpdateTargetId = "results",
+            LoadingElementId = "loading",
+            LoadingElementDuration = 10
+        }))
+        {
+            <input name="Details" type="submit" value="Balance Details" />
+        }
+        <div id="loading">
+            <p>Loading ...</p>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    @Scripts.Render("~/scripts/jquery-1.10.2.min.js")
+    @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <div id="header">
+        <h1> @ViewBag.CompanySettings.NameCompany</h1>
+        <h3> Personal cabinet </h3>
+        <div id="headercontent">
+            <div id="headerleft">
+                <p> Emission date:  @ViewBag.CompanySettings.EmissionDate</p>
+                <p> Total common shares:  @ViewBag.CompanySettings.CommonShareTotal</p>
+                <p> Total preference shares:  @ViewBag.CompanySettings.PreferShareTotal</p>
+            </div>
+            <div id="headerright">
+                @if (ViewBag.Holder.Id != 0)
+                {
+                    <p id="holder-name">@(ViewBag.Holder.FirstName + " " + ViewBag.Holder.SecondName)</p>
+                    <p>Current balance: <mark  id="holder-balance" class=@(ViewBag.Holder.Balance < 0 ? "negative" : "positive")>@ViewBag.Holder.Balance</mark> </p>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div id="spinner-div">
+        <img src="@Url.Content("~/Content/Images/ajax-loader.gif")" />
+    </div>
+
+    <div id="wrapper">
+        @RenderBody()
+    </div>
+
+    <div id="footer">
+        <div id="footercontent">
+            <div id="footerleft">
+                <p> </p>
+                <!-- <a href="/ShowLog/Index" class="ref-footer" )>Show Log</a> -->
+            </div>
+            <div id="footerright">
+                <a href="/Settings/Index" class="ref-footer" )>Settings</a>
+            </div>
+        </div>
+        <p>Copyright © Andrey Dubovoy, 2018</p>
+    </div>
+</body>
+</html>

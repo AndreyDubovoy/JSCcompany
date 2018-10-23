@@ -1,0 +1,52 @@
+﻿@using (Ajax.BeginForm("EditHolder", new AjaxOptions
+{
+    UpdateTargetId = "holder"
+}))
+{
+<fieldset>
+    <legend>Change your data</legend>
+    <div class="edit">
+        <input type="hidden" value="@ViewBag.Holder.Id" name="Id" />
+        <div class="field">
+            <label for="FirstName">First name: </label>
+            <input type="text"
+                   autofocus
+                   id="FirstName"
+                   name="FirstName"
+                   value="@ViewBag.Holder.FirstName"
+                   maxlength="@ViewBag.PropertySize["FirstName"]"
+                   title="Enter no more @ViewBag.PropertySize["FirstName"] symbols"/>
+        </div>
+        <div class="field">
+            <label for="SecondName">Second name: </label>
+            <input type="text"
+                   id="SecondName"
+                   name="SecondName"
+                   value="@ViewBag.Holder.SecondName"
+                   maxlength="@ViewBag.PropertySize["SecondName"]" 
+                   title="Enter no more @ViewBag.PropertySize["SecondName"] symbols"/>
+        </div>
+        <div class="field">
+            <label for="Phone">Phone: </label>
+            <input type="text"
+                   id="Phone"
+                   name="Phone"
+                   value="@ViewBag.Holder.Phone"
+                   pattern="([0-9]|\+)(\d{9})|(\d{12})"
+                   placeholder="XXXXXXXXXXXX"
+                   maxlength="12"
+                   title="Enter 10 or 12 digits"/>
+        </div>
+        <div class="field">
+            <label for="Email">Email: </label>
+            <input type="email"
+                   id="Email"
+                   name="Email"
+                   value="@ViewBag.Holder.Email"
+                   maxlength="@ViewBag.PropertySize["Email"]" />
+        </div>
+        <input name="OK" type="submit" value="OK" />
+        <input name="Cancel" type="submit" value="Cancel" formnovalidate />
+    </div>
+</fieldset>
+}

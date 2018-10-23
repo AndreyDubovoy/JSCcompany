@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "ShowLog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Partial("~/Views/Shared/Menu.cshtml")
+<div id="main">
+    <form enctype="multipart/form-data" method="post" action="/ShowLog/ViewLog/file">
+        <p>
+            <input type="file" name="upload" value="~/Logs" required placeholder="choose file"/>
+        </p>
+        <p>
+            <input type="submit" value="Open" />
+        </p>
+    </form>
+</div>
+
+

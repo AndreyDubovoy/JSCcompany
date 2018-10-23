@@ -1,0 +1,110 @@
+﻿@model WebHolder.Models.TradeRevenue
+<table class="table">
+    <tr>
+        <th>
+            Common
+        </th>
+        <th>
+            Qty
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Amount
+        </th>
+    </tr>
+    <tr>
+        <td>
+            Buy
+        </td>
+        <td align="right">
+            @Model.BuyCommonQty
+        </td>
+        <td align="right">
+            @(Model.BuyCommonQty == 0 ? 0 : Math.Round(Model.BuyCommonAmount / Model.BuyCommonQty, 2))
+        </td>
+        <td class="negative" align="right">
+            @(-Model.BuyCommonAmount)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Sale
+        </td>
+        <td align="right">
+            @Model.SaleCommonQty
+        </td>
+        <td align="right">
+            @(Model.SaleCommonQty == 0 ? 0 : Math.Round(Model.SaleCommonAmount / Model.SaleCommonQty, 2))
+        </td>
+        <td align="right">
+            @Model.SaleCommonAmount
+        </td>
+    </tr>
+    <tr></tr>
+    <tr>
+        <th>
+            Preference
+        </th>
+        <th> </th>
+        <th> </th>
+        <th> </th>
+    </tr>
+    <tr>
+        <td>
+            Buy
+        </td>
+        <td align="right">
+            @Model.BuyPreferQty
+        </td>
+        <td align="right">
+            @(Model.BuyPreferQty == 0 ? 0 : Math.Round(Model.BuyPreferAmount / Model.BuyPreferQty, 2))
+        </td>
+        <td class ="negative" align="right">
+            @(-Model.BuyPreferAmount)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Sale
+        </td>
+        <td align="right">
+            @Model.SalePreferQty
+        </td>
+        <td align="right">
+            @(Model.SalePreferQty == 0 ? 0 : Math.Round(Model.SalePreferAmount / Model.SalePreferQty, 2))
+        </td>
+        <td align="right">
+            @Model.SalePreferAmount
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            Comission
+        </td>
+        <td class="negative" align="right">
+            @(-Model.Comission)
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            Dividends
+        </td>
+        <td align="right">
+            @(Model.Dividends)
+        </td>
+    </tr>
+    <tfoot>
+        <tr>
+            <td colspan="3">
+                Total
+            </td>
+            <td class=@(-Model.BuyCommonAmount - Model.BuyPreferAmount + Model.SaleCommonAmount + Model.SalePreferAmount 
+                        - Model.Comission + Model.Dividends < 0 ? "negative" : "positive")
+                align="right">
+                @(-Model.BuyCommonAmount - Model.BuyPreferAmount + Model.SaleCommonAmount + Model.SalePreferAmount - Model.Comission + Model.Dividends)
+            </td>
+        </tr>
+    </tfoot>
+</table>

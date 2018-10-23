@@ -1,0 +1,43 @@
+﻿<fieldset>
+    <legend>You @(ViewBag.Bid.TradeType == "buy" ? "sale" : "buy" ) next shares</legend>
+
+    @using (Ajax.BeginForm("TradeBid", new AjaxOptions
+    {
+        UpdateTargetId = "main"
+    }))
+    {
+        <input type="hidden" value="@ViewBag.Holder.Id" name="idTrader" />
+        <input type="hidden" value="@ViewBag.Bid.IdBid" name="idBid" />
+        <input type="hidden" value="@ViewBag.Bid.Price" name="Price" />
+        <p>Share type: @ViewBag.Bid.ShareType</p>
+        <p>Price: @ViewBag.Bid.Price </p>
+        <p>
+            <label for="ShareBidQty">Share quantity: </label>
+            <input type="number"
+                   id="ShareBidQty"
+                   name="ShareBidQty"
+                   required
+                   value="@ViewBag.Bid.ShareBidQty"
+                   max="@ViewBag.Bid.ShareBidQty"
+                   min="1" 
+                   class="middle"
+                   title="Change quantity"/>
+        </p>
+
+        <input name="OK" type="submit" value="OK" />
+
+    }
+
+    @using (Ajax.BeginForm("CancelBid", new AjaxOptions
+    {
+        UpdateTargetId = "bids"
+    }))
+    {
+        <input name="Cancel" type="submit" value="Cancel" formnovalidate />
+    }
+
+    @if (ViewBag.Message != null)
+    {
+        <p class="message"> @ViewBag.Message </p>
+    }
+</fieldset>

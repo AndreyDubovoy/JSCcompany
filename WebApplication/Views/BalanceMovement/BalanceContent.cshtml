@@ -1,0 +1,23 @@
+﻿<div id="content">
+    <fieldset>
+        <legend> Current balance  </legend>
+        <h2 id="h-balance">Current balance: <mark id="current-balance" class=@(ViewBag.Holder.Balance < 0 ? "negative" : "positive")>@ViewBag.Holder.Balance</mark></h2>
+    </fieldset>
+</div>
+<div id="refill_withdraw">
+    <fieldset>
+        <legend> Working with balance </legend>
+        @using (Ajax.BeginForm("RefillWithdraw", new AjaxOptions
+        {
+            UpdateTargetId = "moving"
+        }))
+        {
+            <input name="Refill" type="submit" value="Refill" />
+            <input name="Withdraw" type="submit" value="Withdraw" />
+        }
+        <div id="moving">
+            <p class="message">@ViewBag.Message</p>
+        </div>
+    </fieldset>
+</div>
+<script src="~/js/BalanceControl.js"></script>

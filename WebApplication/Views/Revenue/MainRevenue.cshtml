@@ -1,0 +1,45 @@
+﻿@model WebHolder.Models.RevenueBox
+@using (Ajax.BeginForm("RecountRevenue", new AjaxOptions
+{
+    UpdateTargetId = "main"
+}))
+{
+<div id="centertext">
+    <p> For revenue calculate - change data and push "Calculate"</p>
+</div>
+<div id="sharedate">
+    <div id="shareFrom">
+        <fieldset>
+            <legend>From date</legend>
+            <div style="float:right">
+                @Html.Partial("ShareCost", Model.DateShareFrom)
+            </div>
+        </fieldset>
+    </div>
+
+    <div id="shareTo">
+        <fieldset>
+            <legend>To date</legend>
+            @Html.Partial("ShareCost", Model.DateShareTo)
+        </fieldset>
+    </div>
+</div>
+
+    <div id="tradeRevenue">
+        <fieldset>
+            <legend id="legendcenter">Trade between</legend>
+            <div id="center">
+                @Html.Partial("TradeRevenue", Model.TradeRevenue)
+            </div>
+        </fieldset>
+    </div>
+    <div id="centertext">
+        <h2> Revenue: <mark class=@(Model.Revenue < 0 ? "negative" : "positive")>@Model.Revenue</mark> </h2>
+        @if (ViewBag.Message != null)
+        {
+        <p class="message"> @ViewBag.Message </p>
+        }
+        <input name="Recount" type="submit" value="Calculate" />
+    </div>
+}
+   

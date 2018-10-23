@@ -1,0 +1,103 @@
+﻿@model WebHolder.Models.TradeBox
+@if (Model.CurrentBids.Count == 0)
+{
+    <p> It's not current bids now </p>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Trader name
+            </th>
+            <th>
+                Share type
+            </th>
+            <th>
+                Share qty
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Executed qty
+            </th>
+            <th>
+                Operation
+            </th>
+        </tr>
+        @foreach (var item in Model.CurrentBids)
+        {
+            <tr>
+                <td>
+                    @item.Date.ToShortDateString()
+                </td>
+                <td>
+                    @item.NameTrader
+                </td>
+                <td>
+                    @item.ShareType
+                </td>
+                <td align="right">
+                    @item.ShareBidQty
+                </td>
+                <td align="right">
+                    @item.Price
+                </td>
+                <td align="right">
+                    @item.ExecutedShareBidQty
+                </td>
+                @if (item.Complete)
+                {
+                    <td class="noactive">
+                        Complete
+                    </td>
+                }
+                else
+                {
+                    if (item.NameUser != Guid.Empty)
+                    {
+                        <td class="noactive">
+                            In processing
+                        </td>
+                    }
+                    else
+                    {
+                        string refTrade;
+                        if (item.TradeType == "buy")
+                        {
+                            refTrade = "Sale";
+                        }
+                        else
+                        {
+                            refTrade = "Buy";
+                        }
+                        <td>
+                            @Ajax.ActionLink(refTrade, "TradeBid", new { id = item.IdBid }, new AjaxOptions
+                            {
+                                 HttpMethod = "get",
+                                 UpdateTargetId = "bids",
+                            })
+                        </td>
+                    }
+                }
+            </tr>
+        }
+    </table>
+}
+    @using (Ajax.BeginForm("NextPortion", new AjaxOptions
+    {
+        HttpMethod = "get",
+        UpdateTargetId = "bids"
+    }))
+    {
+        if (ViewBag.NextPortion)
+        {
+            <input name="NextPortion" type="submit" value="Next Portion" />
+        }
+            <input name="Refresh" type="submit" value="Refresh" />
+    }
+

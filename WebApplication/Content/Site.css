@@ -1,0 +1,389 @@
+﻿
+body {
+    padding: 0;
+    padding-bottom: 20px;
+    font-family: Arial, Verdana, Helvetica;
+}
+
+.body-content {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+p,
+input {
+    margin: 5px;
+}
+
+h1 {
+    margin-bottom: 5px;
+}
+
+h3 {
+    margin: 0;
+}
+
+input {
+    font-size: 16px;
+}
+
+div {
+    margin: 0;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+fieldset {
+    box-sizing: border-box;
+    border-color: black;
+    height: 100%;
+}
+
+legend {
+    background-color: #ddd;
+    border: solid 1px black;
+    margin-top: 2px;
+}
+
+#legendcenter {
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    width: auto;
+}
+
+#header {
+    border: solid 1px black;
+    background-color: #ccc;
+    text-align: center;
+    overflow: auto;
+    min-width: 890px;
+}
+
+#headercontent,
+#footercontent {
+    overflow: auto;
+    position: relative;
+    width:100%;
+}
+
+#headerleft,
+#footerleft {
+    float: left;
+    width: 50%;
+    height: 100%;
+    text-align: left;
+    min-height: 25px;
+}
+
+#headerright,
+#footerright {
+    margin-left: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: end;
+}
+
+#sidebar {
+    margin: 0;
+    padding-left: 0;
+    padding-top: 5px;
+    background-color: #ddd;
+    float: left;
+    width: 170px;
+}
+
+#wrapper {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    background-color: #ddd;
+    overflow: auto;
+    min-width: 890px;
+}
+
+#main {
+    background-color: #eee;
+    margin-left: 171px;
+    padding: 5px;
+    overflow: auto;
+    min-width: 700px;
+}
+
+#centertext {
+    text-align: center;
+    width: 100%;
+}
+
+#footer {
+    border-top: 1px solid black;
+    font-size: .8em;
+    text-align: center;
+    background-color: #ccc;
+    padding: 5px;
+    min-width: 890px;
+}
+
+#error {
+    color: red;
+}
+
+#content {
+    float: left;
+    width: 49%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#movements,
+#quotetable {
+    overflow: auto;
+    height: 96%;
+    position: absolute;
+    left: 2%;
+    right: 0;
+    top: 5px;
+    bottom: 0;
+    padding: 10px;
+ }
+
+#movements {
+    float: left;
+    width: 47%;
+}
+
+#mybids {
+    padding-top: 5px;
+}
+
+#currentfo {
+    min-height: 180px;
+}
+
+#trade,
+#bids {
+    float: left;
+    width: 61%;
+    min-width: 600px;
+}
+
+#bids {
+    min-height: 310px;
+    padding-top: 10px;
+}
+
+#balance,
+#results {
+    overflow: auto;
+    position: relative;
+    width: 100%;
+    min-width: 1000px;
+}
+
+#results {
+    padding: 3px;
+}
+
+#detail {
+    overflow: auto;
+    position: relative;
+    width: 100%;
+    height: 90%;
+}
+
+#filterOrder {
+    margin-left: 51%;
+    width: 47%;
+    height: 100%;
+    min-height: 200px;
+}
+
+#refill_withdraw {
+    margin-left: 51%;
+    width: 49%;
+    height: 100%;
+}
+
+#quote,
+#tradeFilterOrder {
+    height: 100%;
+    position: absolute;
+    left: 65%;
+    top: 0;
+    bottom: 0;
+    min-width: 330px;
+}
+
+#quote {
+    right: 0;
+    overflow: auto;
+}
+
+#tradeFilterOrder {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    right: 2%;
+}
+
+#shareFrom {
+    float: left;
+    width: 49%;
+    text-align: right;
+}
+
+#shareTo {
+    margin-left: 51%;
+    width: 49%;
+   
+}
+
+#tradeRevenue {
+    text-align: center;
+    padding-top: 5px;
+}
+
+#center {
+    display: inline-block;
+}
+
+#h-balance {
+    margin: 3px;
+}
+
+input.shortnumber {
+    width: 3em;
+}
+
+input.middle {
+    width: 5em;
+}
+
+ul.menu {
+    margin: 0;
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+    ul.menu a {
+        display: block;
+        width: 150px;
+        padding: 10px;
+        border-top: 1px solid black;
+        border-right: 1px solid black;
+        border-left: 1px solid black;
+        text-decoration: none;
+    }
+
+    ul.menu li:last-child a {
+        border-bottom: 1px solid black;
+    }
+
+.menu a.active {
+    background-color: #eee;
+    border-right: 0;
+    color: black;
+}
+
+#headerleft p {
+    font-size: .8em;
+    margin: 0;
+    padding: 5px;
+}
+
+#headerright p {
+    font-size: 1.2em;
+    margin: 0;
+    padding: 5px;
+}
+
+#footerleft a,
+#footerright a,
+text {
+    font-size: .8em;
+}
+
+#loading {
+    display: none;
+    color: Red;
+    font-weight: bold;
+}
+
+#spinner-div {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 100;
+}
+
+.table {
+    border: 1px solid #808080;
+    border-collapse: collapse;
+    margin: 5px;
+}
+
+    .table tr,
+    .table td,
+    .table th {
+        border: 1px solid #808080;
+        padding-left:5px;
+        padding-right:5px;
+    }
+
+    .table tfoot {
+        font-weight: bold;
+    }
+
+    .table td.negative,
+    mark.negative {
+        background-color: red;
+    }
+
+mark.positive {
+    background-color: green;
+}
+
+p.message {
+    color: Red;
+    font-weight: bold;
+}
+
+td.noactive {
+    color: red;
+}
+
+.field {
+    clear: both;
+    text-align: right;
+    line-height: 40px;
+}
+
+label {
+    float: left;
+    padding-right: 10px;
+}
+
+.settings,
+.edit {
+    float: left
+}
+
+.settings h3 {
+        float: left;
+}

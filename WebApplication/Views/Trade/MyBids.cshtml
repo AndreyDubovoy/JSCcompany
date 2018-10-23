@@ -1,0 +1,88 @@
+﻿@model WebHolder.Models.TradeBox
+<fieldset>
+    <legend>Your current state</legend>
+    <h2 id="h-balance">Current balance: <mark id="current-balance" class=@(ViewBag.Holder.Balance < 0 ? "negative" : "positive")>@ViewBag.Holder.Balance</mark></h2>
+    <p>
+        <em>Common shares: @ViewBag.Holder.CommonShare</em> <br />
+        <em> Preference shares: @ViewBag.Holder.PreferShare</em>
+    </p>
+
+    <h3> Your current bids</h3>
+    @if (Model.myBids.Count == 0)
+    {
+        <p> You don't have current bids now </p>
+    }
+    else
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Trade Type
+                </th>
+                <th>
+                    Share Type
+                </th>
+                <th>
+                    Share Qty
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Executed Qty
+                </th>
+                <th>
+                    Operation
+                </th>
+            </tr>
+            @foreach (var item in Model.myBids)
+            {
+                <tr>
+                    <td>
+                        @item.Date.ToShortDateString()
+                    </td>
+                    <td>
+                        @item.TradeType
+                    </td>
+                    <td>
+                        @item.ShareType
+                    </td>
+                    <td align="right">
+                        @item.ShareBidQty
+                    </td>
+                    <td align="right">
+                        @item.Price
+                    </td>
+                    <td align="right">
+                        @item.ExecutedShareBidQty
+                    </td>
+                    <td>
+                        @Ajax.ActionLink("Delete", "DeleteBid", new { id = item.IdBid }, new AjaxOptions
+                   {
+                       HttpMethod = "get",
+                       UpdateTargetId = "trade",
+                       Confirm = "Do you want delete bid for " + item.TradeType + " " + item.ShareType + " shares price " + item.Price.ToString() + "?"
+
+                   })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    }
+
+    <div id="newbid">
+        @using (Ajax.BeginForm("NewBid", new AjaxOptions
+        {
+            HttpMethod = "get",
+            UpdateTargetId = "newbid"
+        }))
+        {
+            <input name="NewBid" type="submit" value="New Bid" />
+        }
+    </div>
+</fieldset>
+<script src="~/js/BalanceControl.js"></script>

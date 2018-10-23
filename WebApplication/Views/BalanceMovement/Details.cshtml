@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Business.BalanceMovement>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th width="100">
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment)
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Date.ToShortDateString()
+                </td>
+                <td class=@(item.Amount < 0 ? "negative" : "positive") align="right">
+                    @item.Amount
+                </td>
+                <td>
+                    @item.Comment
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    @if (ViewBag.NextPortion)
+    {
+
+        @Ajax.ActionLink("Next Portion","NextPortion","BalanceMovement", new AjaxOptions
+        {
+            HttpMethod = "post",
+            UpdateTargetId = "movements"
+
+        })
+
+    }
+

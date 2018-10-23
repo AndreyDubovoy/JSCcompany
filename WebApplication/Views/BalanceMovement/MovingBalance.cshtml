@@ -1,0 +1,37 @@
+﻿<h3>@ViewBag.MovingType your account</h3>
+@using (Ajax.BeginForm("MovingResult", new AjaxOptions
+{
+    UpdateTargetId = "balance"
+}))
+{
+    <input type="hidden"
+           value="@ViewBag.MovingType"
+           name="MovingType" />
+
+    <p> Enter amount for moving </p>
+    <input type="number"
+           class="middle"
+           name="Amount"
+           step="0.01"
+           required
+           min="0"
+           title="Enter required amount" /> <br />
+
+    <input name="PayPal"
+           type="submit"
+           value="PayPal" />
+
+    <input name="Visa"
+           type="submit"
+           value="Visa" />
+
+    <input name="MasterCard"
+           type="submit"
+           value="MasterCard" />
+
+    <input name="Cancel"
+           type="submit"
+           value="Cancel"
+           formnovalidate />
+}
+

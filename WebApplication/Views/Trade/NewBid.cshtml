@@ -1,0 +1,67 @@
+﻿<fieldset>
+    <legend> Create new bid </legend>
+    @using (Ajax.BeginForm("NewBid", new AjaxOptions
+    {
+        UpdateTargetId = "trade"
+    }))
+    {
+        <input type="hidden" value="@ViewBag.Holder.Id" name="idTrader" />
+        <table class="table">
+            <tr>
+                <th>
+                    Share type
+                </th>
+                <th>
+                    Trade type
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" value="common" @(ViewBag.NewBid.ShareType == "common" ? "checked" : "") name="ShareType" />Common
+                </td>
+                <td>
+                    <input type="radio" value="buy" @(ViewBag.NewBid.TradeType == "buy" ? "checked" : "") name="TradeType" />Buy
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" value="prefer" @(ViewBag.NewBid.ShareType == "prefer" ? "checked" : "") name="ShareType" />Preference
+                </td>
+                <td>
+                    <input type="radio" value="sale" @(ViewBag.NewBid.TradeType == "sale" ? "checked" : "") name="TradeType" />Sale
+                </td>
+            </tr>
+        </table>
+        <div class="edit">
+            <div class="field">
+                <label for="ShareBidQty">Share quantity: </label>
+                <input type="number"
+                       class="middle"
+                       id="ShareBidQty"
+                       name="ShareBidQty"
+                       required
+                       value="@ViewBag.NewBid.ShareBidQty"
+                       min="1" 
+                       title="Change quantity"/>
+            </div>
+            <div class="field">
+                <label for="Price">Price: </label>
+                <input type="number"
+                       class="middle"
+                       name="Price"
+                       step="0.01"
+                       required
+                       value="@ViewBag.NewBid.Price"
+                       min="0.01" 
+                       title="Change price"/>
+            </div>
+            <input name="OK" type="submit" value="OK" />
+            <input name="Cancel" type="submit" value="Cancel" formnovalidate />
+        </div>
+
+            }
+            @if (ViewBag.Message != null)
+            {
+                <p class="message"> @ViewBag.Message </p>
+            }
+    </fieldset>

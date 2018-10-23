@@ -1,0 +1,10 @@
+﻿@model WebHolder.Models.TradeBox
+<fieldset>
+    <legend>Other holder bids</legend>
+    <div id="bids">
+        @Html.Partial("CurrentBids", Model)
+    </div>
+    <div id="tradeFilterOrder">
+        @Html.Partial("TradeFilterOrder")
+    </div>
+</fieldset>

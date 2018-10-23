@@ -1,0 +1,31 @@
+﻿<fieldset>
+    <legend> Current order and filter</legend>
+    <div id="currentfo">
+        <p> Current order: @(ViewBag.FilterOrder.OrderDate == "true" ? "Date" : "Amount")</p>
+        <p> Current period: @(ViewBag.FilterOrder.AllDate == "true" ? "All date" : "From " + ViewBag.FilterOrder.DateFromData + " to " + ViewBag.FilterOrder.DateToData )</p>
+        @if (ViewBag.FilterOrder.Moving == "on")
+        {
+            <p> Filtered: Moving</p>
+        }
+        @if (ViewBag.FilterOrder.Trade == "on")
+        {
+            <p> Filtered: Trade</p>
+        }
+        @if (ViewBag.FilterOrder.Comission == "on")
+        {
+            <p> Filtered: Comission</p>
+        }
+        @if (ViewBag.FilterOrder.Dividends == "on")
+        {
+            <p> Filtered: Dividends</p>
+        }
+
+        @using (Ajax.BeginForm("ChangeFilterOrder", new AjaxOptions
+        {
+            UpdateTargetId = "filterOrder",
+        }))
+        {
+            <input name="FilterOrder" type="submit" value="Change filter and order" />
+        }
+    </div>
+</fieldset>

@@ -1,0 +1,49 @@
+﻿<div id="sidebar">
+    <nav>
+        <ul class="menu">
+            @if (ViewBag.Holder.Id != 0)
+            {
+            <li>
+                <a href="/Home/HolderHome" class=@(ViewBag.Title == "Home" ? "active" : "") )>Home</a>
+            </li>
+                <li>
+                    @Ajax.ActionLink("Balance", "Index", "BalanceMovement", null,
+                                      new AjaxOptions
+                                      {
+                                          UpdateTargetId = "wrapper",
+                                          LoadingElementId = "spinner-div",
+                                          LoadingElementDuration = 100
+                                      },
+                                      new { @class = (ViewBag.Title == "Balance" ? "active" : "") })
+                </li>
+                <li>
+                    @Ajax.ActionLink("Trade", "Index","Trade", null,
+                                     new AjaxOptions
+                                     {
+                                         UpdateTargetId = "wrapper",
+                                         LoadingElementId = "spinner-div",
+                                         LoadingElementDuration = 100
+                                     },
+                                     new { @class = (ViewBag.Title == "Trade" ? "active" : "") })
+                </li>
+                <li>
+                    @Ajax.ActionLink("Revenue", "Index","Revenue", null,
+                                     new AjaxOptions
+                                     {
+                                         UpdateTargetId = "wrapper",
+                                         LoadingElementId = "spinner-div",
+                                         LoadingElementDuration = 100
+                                     },
+                                     new { @class = (ViewBag.Title == "Revenue" ? "active" : "") })
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="/Home/Index" class=@(ViewBag.Title == "User Entry" ? "active" : "") )>User Entry</a>
+                </li>
+            }
+        </ul>
+
+    </nav>
+</div>

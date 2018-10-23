@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Business.BalanceMovement>
+<fieldset>
+    <legend>Balance details</legend>
+    <div id="detail">
+        <div id="movements">
+            @Html.Partial("Details", Model)
+        </div>
+        <div id="filterOrder">
+            @Html.Partial("CurrentFilterOrder")
+        </div>
+    </div>
+</fieldset>

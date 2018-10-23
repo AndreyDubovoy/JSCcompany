@@ -1,0 +1,17 @@
+﻿<div id="holder">
+    @Html.Partial("ShowHolder")
+</div>
+<div id="mybids">
+    @using (Ajax.BeginForm("LastTrade", new AjaxOptions
+    {
+        UpdateTargetId = "mybids",
+        LoadingElementId = "loading",
+        LoadingElementDuration = 10
+    }))
+    {
+        <input name="LastTrade" type="submit" value="My last trade operation" />
+    }
+    <div id="loading">
+        <p>Loading ...</p>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+﻿@model WebHolder.Models.DateShare
+<input type="date"
+       id=@Model.Name
+       name=@Model.Name
+       value=@Model.Date
+       max=@DateTime.Today.ToString("yyyy-MM-dd")
+       min=@ViewBag.EmissionDate 
+       title="Change data and push Calculate"/>
+
+<table class="table">
+    <tr>
+        <th>
+            Share type
+        </th>
+        <th>
+            Qty
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Amount
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            Common
+        </td>
+        <td align="right">
+            @Model.Common
+        </td>
+        <td align="right">
+            @Model.PriceCommon
+        </td>
+        <td align="right">
+            @(Model.Common * Model.PriceCommon)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Prefer
+        </td>
+        <td align="right">
+            @Model.Prefer
+        </td>
+        <td align="right">
+            @Model.PricePrefer
+        </td>
+        <td align="right">
+            @(Model.Prefer * Model.PricePrefer)
+        </td>
+    </tr>
+    <tfoot>
+        <tr>
+            <td colspan="3">
+                Total
+            </td>
+            <td align="right">
+                @(Model.Common * Model.PriceCommon + Model.Prefer * Model.PricePrefer)
+            </td>
+        </tr>
+    </tfoot>
+</table>
