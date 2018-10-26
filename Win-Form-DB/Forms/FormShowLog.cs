@@ -22,7 +22,9 @@ namespace Win_Form_DB.Forms
         {
             InitializeComponent();
             string path = (LogManager.GetCurrentLoggers()[0].Logger.Repository.GetAppenders()[0] as FileAppender).File;
+            path = path.Substring(0, path.LastIndexOf('\\') + 1);
             openFileDialog1.InitialDirectory = path;
+            openFileDialog1.RestoreDirectory = true;
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
