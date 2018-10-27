@@ -25,6 +25,7 @@ namespace Win_Form_DB.Forms
             path = path.Substring(0, path.LastIndexOf('\\') + 1);
             openFileDialog1.InitialDirectory = path;
             openFileDialog1.RestoreDirectory = true;
+            openFileDialog1.FileName = "LogError";
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
