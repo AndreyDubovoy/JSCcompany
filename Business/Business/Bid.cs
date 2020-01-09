@@ -9,6 +9,7 @@ using Data;
 using Framework.Db;
 using Framework.Utils;
 
+// djgf;adjgf;lasjf;asjr;fl;lj
 namespace Business
 {
     public class Bid
